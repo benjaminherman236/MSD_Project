@@ -1,11 +1,11 @@
-package com.training.project.api;
+package com.training.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DataApi {
+public class DataApp {
 public static void main(String[] args) {
-	SpringApplication.run(DataApi.class, args);
+	SpringApplication.run(DataApp.class, args);
 }
 }

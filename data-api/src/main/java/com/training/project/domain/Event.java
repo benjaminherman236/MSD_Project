@@ -1,10 +1,10 @@
-package com.training.project.api.data;
+package com.training.project.domain;
 
-public class EventResponse {
+public class Event {
 		String name;
 		String email;
 		String password;
-		public EventResponse(String name, String email, String password) {
+		public Event(String name, String email, String password) {
 			super();
 			this.name = name;
 			this.email = email;

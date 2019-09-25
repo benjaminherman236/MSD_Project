@@ -1,10 +1,10 @@
-package com.training.project.api.data;
+package com.training.project.domain;
 
-public class CustomerResponse {
+public class Registration {
 	String name;
 	String email;
 	String password;
-	public CustomerResponse(String name, String email, String password) {
+	public Registration(String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -28,5 +28,4 @@ public class CustomerResponse {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 }

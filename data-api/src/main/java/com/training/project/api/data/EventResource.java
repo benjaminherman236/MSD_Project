@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/account")
 public class EventResource {
 	@GetMapping("/events")
-	public CustomerResponse getCustomer() {
-		return new CustomerResponse("Bob", "bob@bob.com", "password");
+	public EventResponse getCustomer() {
+		return new EventResponse("Bob", "bob@bob.com", "password");
 	}
 
 }

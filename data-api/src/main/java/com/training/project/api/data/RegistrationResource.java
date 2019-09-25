@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/account")
 public class RegistrationResource {
 	@GetMapping("/registrations")
-	public CustomerResponse getCustomer() {
-		return new CustomerResponse("Bob", "bob@bob.com", "password");
+	public RegistrationResponse getCustomer() {
+		return new RegistrationResponse("Bob", "bob@bob.com", "password");
 	}
 
 }

@@ -36,7 +36,7 @@ public class RegistrationAPI {
 	}
 	@PostMapping("/registrations")
 	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri){
-		if (newRegistration.getId() != 0 || newRegistration.getName() == null || newRegistration.getEmail() == null) {
+		if (newRegistration.getId() != 0 || newRegistration.getEventId() == 0 || newRegistration.getCustomerId() == 0 || newRegistration.getDate() == null || newRegistration.getNotes() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);
@@ -46,7 +46,7 @@ public class RegistrationAPI {
 	}
 	@PutMapping("/registrations/{registrationId}")
 	public ResponseEntity<?> putRegistration(@RequestBody Registration newRegistration, @PathVariable("registrationId") long registrationId){
-		if (newRegistration.getId() != registrationId || newRegistration.getName() == null || newRegistration.getEmail() == null) {
+		if (newRegistration.getId() != registrationId || newRegistration.getEventId() == 0 || newRegistration.getCustomerId() == 0 || newRegistration.getDate() == null || newRegistration.getNotes() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);

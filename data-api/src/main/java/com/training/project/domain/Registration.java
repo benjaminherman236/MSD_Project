@@ -14,29 +14,37 @@ public class Registration {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	long id;
 	
-	@Column(name="CUSTOMER_NAME")
-	String name;
-	@Column(name="CUSTOMER_EMAIL")
-	String email;
-	@Column(name="PASSWORD")
-	String password;
-	public String getName() {
-		return name;
+	@Column(name="EVENT_ID")
+	int eventId;
+	@Column(name="CUSTOMER_ID")
+	int customerId;
+	@Column(name="REG_DATE")
+	String date;
+	@Column(name="REG_NOTES")
+	String notes;
+	public int getEventId() {
+		return eventId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
 	}
-	public String getEmail() {
-		return email;
+	public int getCustomerId() {
+		return customerId;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
-	public String getPassword() {
-		return password;
+	public String getDate() {
+		return date;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	public long getId() {
 		return id;

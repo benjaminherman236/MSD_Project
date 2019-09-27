@@ -6,5 +6,5 @@ RUN gradle bootJar
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 VOLUME /tmp
-COPY --from=builder ${LIBS}/ app/lib
-ENTRYPOINT ["java", "-jar", "./app/lib/data-api-0.0.1-SNAPSHOT.jar"]
+COPY --from=builder app/build/libs/*.jar /app/data-api-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar", "app/data-api-0.0.1-SNAPSHOT.jar"]

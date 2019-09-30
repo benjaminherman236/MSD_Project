@@ -34,6 +34,10 @@ public class CustomerAPI {
 	public Optional<Customer> getCustomerById(@PathVariable("customerId") long id) {
 		return repo.findById(id);
 	}
+	@GetMapping("/customers/{customerName}")
+	public Optional<Customer> getCustomerByName(@PathVariable("customerName") String username){
+		return repo.findByName(username);
+	}
 	@PostMapping("/customers")
 	public ResponseEntity<?> addCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri){
 		if (newCustomer.getId() != 0 || newCustomer.getName() == null || newCustomer.getEmail() == null) {

@@ -1,4 +1,4 @@
-package com.training.api.authenticate;
+package com.training.project.auth;
 
 import java.io.IOException;
 
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthFilter implements Filter {
 
-	JWTUtil jwtUtil = new JWTMockUtil();
-	// JWTUtil jwtUtil = new JWTHelper();
+	//JWTUtil jwtUtil = new JWTMockUtil();
+	JWTUtil jwtUtil = new JWTHelper();
 	
 	private String api_scope = "com.api.customer.r";
 

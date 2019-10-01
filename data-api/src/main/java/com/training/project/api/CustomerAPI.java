@@ -34,15 +34,9 @@ public class CustomerAPI {
 	public Optional<Customer> getCustomerById(@PathVariable("customerId") long id) {
 		return repo.findById(id);
 	}
-<<<<<<< HEAD
-	@GetMapping("/customers/{customerName}")
-	public Optional<Customer> getCustomerByName(@PathVariable("customerName") String username){
-		return repo.findByName(username);
-=======
 	@GetMapping("/auth/customers/{customerName}/{pw}")
 	public Optional<Customer> getCustomerByName(@PathVariable("customerName") String name, @PathVariable("pw") String password) {
 		return repo.findByNameAndPassword(name, password);
->>>>>>> 0d6a6941fa3e6ddf36b24a9ca997682ba86e3111
 	}
 	@PostMapping("/customers")
 	public ResponseEntity<?> addCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri){

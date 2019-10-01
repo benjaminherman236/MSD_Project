@@ -1,4 +1,4 @@
-package com.training.api.authenticate;
+package com.training.project.auth;
 
 import java.io.IOException;
 
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthFilter implements Filter {
 
-	JWTUtil jwtUtil = new JWTMockUtil();
-	// JWTUtil jwtUtil = new JWTHelper();
+	//JWTUtil jwtUtil = new JWTMockUtil();
+	JWTUtil jwtUtil = new JWTHelper();
 	
 	private String api_scope = "com.api.customer.r";
 
@@ -27,24 +27,23 @@ public class AuthFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		String uri = req.getRequestURI();
-		if (uri.startsWith("/account/token")) {
-			// continue on to get-token endpoint
-			chain.doFilter(request, response);
-			return;
-		} else {
-			// check JWT token
+		if (uri.startsWith("/account/customers")) {
+		// check JWT token
 			String authheader = req.getHeader("authorization");
 			if (authheader != null && authheader.length() > 7 && authheader.startsWith("Bearer")) {
 				String jwt_token = authheader.substring(7, authheader.length());
 				if (jwtUtil.verifyToken(jwt_token)) {
 					String request_scopes = jwtUtil.getScopes(jwt_token);
-					if (request_scopes.contains(api_scope)) {
-						// continue on to api
-						chain.doFilter(request, response);
-						return;
+						if (request_scopes.contains(api_scope)) {
+							// continue on to api
+							chain.doFilter(request, response);
+							return;
 					}
 				}
 			}
+		} else {
+			//run request
+			chain.doFilter(request, response);
 		}
 
 		// reject request and return error instead of data

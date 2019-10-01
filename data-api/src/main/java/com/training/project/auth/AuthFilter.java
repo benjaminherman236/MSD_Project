@@ -41,7 +41,10 @@ public class AuthFilter implements Filter {
 					}
 				}
 			}
-		} 
+		} else {
+			//run request
+			chain.doFilter(request, response);
+		}
 
 		// reject request and return error instead of data
 		res.sendError(HttpServletResponse.SC_FORBIDDEN, "failed authentication");

@@ -50,6 +50,8 @@ public class JWTHelper implements JWTUtil {
 			        .withIssuer("me@me.com")
 			        .build(); //Reusable verifier instance
 			    DecodedJWT jwt = verifier.verify(token);
+			    System.out.println(jwt.getClaim("scopes"));
+			    
 			    return jwt.getClaim("scopes").asString();
 			} catch (JWTVerificationException exception){
 				return null;
